@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nebula AI Complete Page</title>
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="logo.jpg" />
+  <link rel="icon" type="image/png" href="" />
   <script src="https://cdn.tailwindcss.com"></script>
   
   <style> 
@@ -1042,6 +1042,56 @@ const App = () => {
   </div>
 
   <!-- Footer Credit -->
+  <div class="mt-8 text-white text-xs text-center">
+    Template by Tibor Bregman, BlueStar Supply
+  </div>
+
+</footer>
+
+<style>
+@keyframes slide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-slide {
+  animation: slide 50s linear infinite;
+  display: flex;
+  width: max-content;
+}
+</style>
+
+
+<script>
+  function toggleDetail(id) {
+    const desc = document.getElementById(`desc-${id}`);
+    const arrow = document.getElementById(`arrow-${id}`);
+    desc.classList.toggle('show');
+    arrow.style.transform = desc.classList.contains('show') ? 'rotate(90deg)' : 'rotate(0deg)';
+  }
+</script>
+
+
+  <script>
+  // Typing animation
+  document.addEventListener('DOMContentLoaded', () => {
+    const typingLines = document.querySelectorAll('#ai-agency .typing-line');
+
+    typingLines.forEach((line, lineIndex) => {
+      const words = line.querySelectorAll('span');
+
+      words.forEach((word, wordIndex) => {
+        setTimeout(() => {
+          word.classList.add('visible');
+        }, lineIndex * 3000 + wordIndex * 400); // timing adjust
+      });
+    });
+  });
+</script>
+
+
+</body>
+</html>
+>
   <div class="mt-8 text-white text-xs text-center">
     Template by Tibor Bregman, BlueStar Supply
   </div>
