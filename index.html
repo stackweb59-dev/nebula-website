@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nebula AI Complete Page</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.jpg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style> 
+    html { scroll-behavior: smooth; }
+    body { background-color: #000; color: #fff; font-family: sans-serif; }
+    
+
+    /* Hero buttons */
+    .btn-slide { position: relative; display: inline-flex; flex-direction: column; align-items: center; overflow: hidden; }
+    .btn-slide span { display: block; transition: transform 0.4s ease; }
+    .btn-slide .arrow { transition: transform 0.4s ease; margin-top: 2px; }
+    .btn-slide:hover span { transform: translateY(-10px); }
+    .btn-slide:hover .arrow { transform: translateY(-10px) translateX(4px); }
+
+    /* Typing animation */
+    .typing-line span { opacity: 0; display: inline-block; transition: opacity 0.3s ease; }
+    .typing-line span.visible { opacity: 1; }
+    .green-text { color: #7CFC00; }
+
+    /* Card & button styles */
+    .card { background-color: #0a0a0a; border-radius: 22px; border: 2px solid #7CFC00; padding: 16px; flex-direction: column; display: flex; justify-content: flex-start; gap: 12px; }
+    .snippet-box { background-color: #111; border: 2px solid #7CFC00; border-radius: 8px; padding: 12px; height: 25vh; overflow-y: auto; font-family: monospace; font-size: 0.85rem; }
+    .border-white { border: 2px solid #fff; }
+    .btn-neon { border: 2px solid #7CFC00; color: #7CFC00; transition: 0.3s; }
+    .btn-neon:hover { background-color: #7CFC00; color: #000; box-shadow: 0 0 10px #7CFC00, 0 0 20px #7CFC00; }
+
+    /* Toggle switch */
+    .toggle-switch { position: relative; display: inline-block; width: 50px; height: 25px; }
+    .toggle-switch input { opacity: 0; width: 0; height: 0; }
+    .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; border-radius: 34px; transition: 0.4s; }
+    .slider:before { position: absolute; content: ""; height: 21px; width: 21px; left: 2px; bottom: 2px; background-color: white; border-radius: 50%; transition: 0.4s; }
+    input:checked + .slider { background-color: #7CFC00; }
+    input:checked + .slider:before { transform: translateX(25px); }
+
+    /* Sliding logos */
+    .logo-track { display: flex; gap: 10px; overflow: hidden; }
+    .logo-track-inner { display: flex; gap: 10px; animation: scroll 10s linear infinite; }
+    .logo-item { flex: 0 0 auto; width: 50px; height: 50px; background-color: #111; border: 2px solid #7CFC00; display: flex; justify-content: center; align-items: center; border-radius: 8px; }
+    @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  </style>
+</head>
+
+<body class="flex flex-col items-center">
+
+  <!-- HERO SECTION -->
+  <section id="hero" class="relative h-screen w-full overflow-hidden flex flex-col justify-center items-center text-center px-4">
+    <video autoplay muted loop class="absolute w-full h-full object-cover">
+      <source src="1.mp4" type="video/mp4">
+    </video>
+    <div class="absolute top-6 left-4 text-2xl font-bold text-[#FFDAB9] z-50">Nebula</div>
+    <nav class="absolute top-6 left-1/2 transform -translate-x-1/2 border border-white rounded-[22px] px-6 py-3 flex items-center justify-center z-40 bg-transparent">
+      <ul class="flex space-x-6 text-white font-medium">
+        <li><a href="#process" class="hover:text-green-400 transition">Process</a></li>
+        <li><a href="#services" class="hover:text-green-400 transition">Services</a></li>
+        <li><a href="#work" class="hover:text-green-400 transition">Work</a></li>
+        <li><a href="#plan" class="hover:text-green-400 transition">Plan</a></li>
+        <li><a href="#teams" class="hover:text-green-400 transition">Teams</a></li>
+        <li><a href="#contact" class="hover:text-green-400 transition">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="relative z-10 flex flex-col items-center justify-center text-center space-y-4 md:space-y-6">
+      <h1 class="text-5xl md:text-8xl font-normal text-white tracking-widest max-w-[90%] mx-auto leading-tight">
+        DRIVING GROWTH WITH AI
+      </h1>
+      <h5 class="text-xl md:text-2xl text-white max-w-2xl mx-auto">
+        We craft workflow automations and bespoke AI solutions for forward-thinking companies.
+      </h5>
+      <div class="flex space-x-4 mt-8">
+        <a href="#services" class="btn-slide px-6 py-3 border border-white rounded-full text-white transition bg-transparent font-medium cursor-pointer">
+          <span>Services</span>
+          <span class="arrow text-xl">&#8594;</span>
+        </a>
+        <a href="#contact" class="btn-slide px-6 py-3 border border-white rounded-full text-white transition bg-transparent font-medium cursor-pointer">
+          <span>Get in Touch</span>
+          <span class="arrow text-xl">&#8594;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TYPING SECTION -->
+  <section id="ai-agency" class="flex flex-col justify-start items-start min-h-screen px-[5%] py-[10vh] bg-black text-white text-[5vw] leading-tight">
+    <div class="typing-line mb-4"><span>We're</span> <span>a</span> <span class="green-text">full-service</span> <span>AI</span></div>
+    <div class="typing-line mb-4"><span>Automation</span> <span>Agency</span> <span>👋</span></div>
+    <div class="typing-line mb-4"><span>We</span> <span>turn</span> <span>businesses</span> <span>into</span> <span>AI-</span></div>
+    <div class="typing-line"><span class="green-text">driven</span> <span>✨</span> <span>industry</span> <span>leaders.</span></div>
+  </section>
+
+  <!-- CARDS SECTION -->
+   <h2 class="text-5xl md:text-8xl mb-9  font-normal text-white text-center tracking-wide 
+           drop-shadow-[0_0_10px_#7CFC00]">
+OUR PROCESS</h2>
+
+  <section id="process" class="bg-black text-white w-full py-20 px-8 font-[Poppins]">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+    <!-- CARD 1 - SUBSCRIBE -->
+    <div class="bg-[#0a0a0a]/70 backdrop-blur-md border border-[#39ff14]/20 rounded-2xl p-6 flex flex-col justify-between shadow-[0_0_20px_rgba(57,255,20,0.15)]">
+      <div class="flex items-center gap-4 border border-[#39ff14]/20 p-3 rounded-xl">
+        <label class="relative inline-flex items-center cursor-pointer">
+          <input type="checkbox" class="sr-only peer">
+          <div class="w-14 h-8 bg-[#111] rounded-full peer peer-checked:after:translate-x-6 after:content-[''] after:absolute after:top-[4px] after:left-[4px] after:bg-[#39ff14] after:h-6 after:w-6 after:rounded-full after:transition-all peer-checked:bg-[#39ff14]/30 shadow-[0_0_10px_#39ff14]"></div>
+        </label>
+        <span class="text-lg font-medium">Subscription</span>
+      </div>
+
+      <div class="flex justify-between border border-[#39ff14]/30 rounded-xl mt-4 p-3">
+        <button class="px-4 py-2 rounded-lg bg-transparent border border-[#39ff14] text-[#39ff14] hover:bg-[#39ff14] hover:text-black transition">Basic</button>
+        <button class="px-4 py-2 rounded-lg bg-[#39ff14]/20 text-[#39ff14] border border-[#39ff14]">Pro</button>
+        <button class="px-4 py-2 rounded-lg bg-transparent border border-[#39ff14] text-[#39ff14] hover:bg-[#39ff14] hover:text-black transition">Custom</button>
+      </div>
+
+      <div class="mt-6">
+        <h3 class="text-[#39ff14] text-2xl font-semibold">01. Subscribe</h3>
+        <p class="text-gray-400 mt-2 text-sm">
+          Choose your preferred plan to start and cancel or pause anytime. Stay flexible for your business needs.
+        </p>
+      </div>
+    </div>
+
+    <!-- CARD 2 - REQUEST (LOGOS MOVE INSIDE FIXED BORDER) -->
+    <div class="bg-[#0a0a0a]/70 backdrop-blur-md border border-[#39ff14]/40 rounded-2xl p-6 shadow-[0_0_20px_rgba(57,255,20,0.15)] flex flex-col justify-between">
+      <div class="border border-[#39ff14]/40 rounded-xl p-4 overflow-hidden">
+        
+        <!-- Top Row (left to right) -->
+        <div class="flex gap-8 whitespace-nowrap animate-scroll-left text-3xl mb-4 justify-center">
+          <span>💬</span><span>🐙</span><span>⚡</span><span>🌊</span><span>🔗</span><span>💎</span>
+        </div>
+        <!-- Bottom Row (right to left) -->
+        <div class="flex gap-8 whitespace-nowrap animate-scroll-right text-3xl justify-center">
+          <span>🚀</span><span>🎯</span><span>📘</span><span>🍀</span><span>🔥</span><span>🧠</span>
+        </div>
+
+      </div>
+
+      <div class="mt-6">
+        <h3 class="text-[#39ff14] text-2xl font-semibold">02. Request</h3>
+        <p class="text-gray-400 mt-2 text-sm">
+          Start requesting workflow automations and AI applications — our developers transform your ideas into reality.
+        </p>
+      </div>
+    </div>
+
+    <!-- CARD 3 - BUILD -->
+    <div class="bg-[#0a0a0a]/70 backdrop-blur-md border border-[#39ff14]/20 rounded-2xl p-6 shadow-[0_0_20px_rgba(57,255,20,0.15)] flex flex-col justify-between">
+      <pre class="bg-[#111] border border-[#39ff14]/20 p-3 rounded-lg text-gray-400 text-xs overflow-x-auto">
+import { FeatureSection } from 'nebula-template';
+
+const App = () => {
+  return (
+    &lt;div&gt;
+      &lt;Header /&gt;
+      &lt;HeroSection /&gt;
+      &lt;FeatureSection /&gt;
+      &lt;Footer /&gt;
+    &lt;/div&gt;
+  );
+}
+      </pre>
+      <div class="mt-6">
+        <h3 class="text-[#39ff14] text-2xl font-semibold">03. Build</h3>
+        <p class="text-gray-400 mt-2 text-sm">
+          Our developers swiftly begin building your custom solutions, prioritising speed without compromising quality.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Animation -->
+<style>
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes scroll-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+.animate-scroll-left {
+  display: inline-flex;
+  animation: scroll-left 10s linear infinite;
+}
+.animate-scroll-right {
+  display: inline-flex;
+  animation: scroll-right 10s linear infinite;
+}
+</style>
+
+  <style>
+    body {
+      background-color: #000;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .neon-border {
+      border: 1px solid rgba(124, 252, 0, 0.2);
+      box-shadow: 0 0 15px rgba(124, 252, 0, 0.3);
+      background: rgba(10, 10, 10, 0.7);
+      backdrop-filter: blur(8px);
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 10px;
+      background-color: #111;
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #39ff14, #a8ff60);
+      border-radius: 9999px;
+      animation: fillAnim 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes fillAnim {
+      from { transform: scaleX(0.9); transform-origin: left; }
+      to { transform: scaleX(1); transform-origin: left; }
+    }
+</style>
+
+<body class="flex flex-col items-center justify-center min-h-screen px-6 py-16 text-white">
+
+  <!-- Main Cards -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-6xl">
+
+    <!-- Left Card -->
+    <div class="neon-border rounded-2xl p-8">
+      <div class="mb-8 space-y-6">
+
+        <div>
+          <p class="text-gray-400 mb-2">Speed</p>
+          <div class="progress-track">
+            <div class="progress-fill w-[80%]"></div>
+          </div>
+        </div>
+
+        <div>
+          <p class="text-gray-400 mb-2">Security</p>
+          <div class="progress-track">
+            <div class="progress-fill w-[70%]"></div>
+          </div>
+        </div>
+
+        <div>
+          <p class="text-gray-400 mb-2">Accuracy</p>
+          <div class="progress-track">
+            <div class="progress-fill w-[90%]"></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-3xl font-semibold mb-2 flex items-center gap-2">
+          <span class="text-[#7CFC00] text-4xl font-bold">04.</span>
+          Test & Optimise
+        </h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          You either approve or request revisions — we’re dedicated to refining our builds until you’re fully satisfied.
+        </p>
+      </div>
+    </div>
+
+    <!-- Right Card (Video Placeholder) -->
+    <div class="neon-border rounded-2xl p-8 flex flex-col justify-center items-center text-center">
+      <img autoplay loop muted playsinline class="w-full rounded-xl shadow-lg ring-1 ring-[#39ff14]/30">
+        <img src="earth.png" type="img/png">
+    </img>
+
+      <div class="mt-8">
+        <h3 class="text-3xl font-semibold mb-2 flex justify-center items-center gap-2">
+          <span class="text-[#7CFC00] text-4xl font-bold">05.</span>
+          Become an Industry Leader
+        </h3>
+        <p class="text-gray-400 text-sm leading-relaxed max-w-md mx-auto">
+          Continue requesting as many workflow automations and AI applications as you wish — transform your organisation into a worldwide industry leader.
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+  <!-- SERVICES SECTION -->
+  <section id="services" class="w-full px-8 py-16 text-center">
+    <h2 class="text-5xl md:text-8xl font-bold text-white tracking-wide drop-shadow-[0_0_10px_#7CFC00] mb-4">
+      OUR SERVICES
+    </h2>
+    <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-12">
+      We provide bespoke AI solutions and workflow automations tailored to your business needs.
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-6 p-10 w-full max-w-7xl mx-auto">
+      <!-- Card 1 -->
+      <div class="bg-black/40 border border-green-900/40 rounded-2xl p-6 shadow-lg hover:border-green-400/40 transition duration-1000">
+        <div class="space-y-4">
+          <div class="bg-black/30 p-4 rounded-xl border border-green-900/40">
+            <p class="text-green-400 font-semibold">Framer</p>
+            <p class="text-sm">New contact form entry</p>
+          </div>
+          <div class="bg-black/30 p-4 rounded-xl border border-green-900/40">
+            <p class="text-green-400 font-semibold">Airtable</p>
+            <p class="text-sm">Add data to Airtable</p>
+          </div>
+          <div class="bg-black/30 p-4 rounded-xl border border-green-900/40">
+            <p class="text-green-400 font-semibold">OpenAI</p>
+            <p class="text-sm">Write welcome message</p>
+          </div>
+        </div>
+        <div class="mt-6">
+          <h2 class="text-white text-xl font-semibold">Workflow Automations</h2>
+          <p class="text-gray-400 text-sm mt-2">
+            We automate your workflows by connecting your favourite applications. Boosting efficiency and enhancing productivity.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-black/40 border border-green-900/40 rounded-2xl p-6 shadow-lg hover:border-green-400/40 transition duration-1000">
+        <div class="bg-black/30 p-4 rounded-xl border border-green-900/40">
+          <p class="text-green-400 font-semibold">AI Assistant</p>
+          <p class="text-sm mt-2 text-gray-400">
+            Develop chatbots and AI tools to automate communication and increase engagement.
+          </p>
+        </div>
+        <div class="mt-6">
+          <h2 class="text-white text-xl font-semibold">Chatbot Development</h2>
+          <p class="text-gray-400 text-sm mt-2">
+            Reactive chatbots that understand nuances and handle complex queries seamlessly.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-black/40 border border-green-900/40 rounded-2xl p-6 shadow-lg hover:border-green-400/40 transition duration-1000">
+        <div class="bg-black/30 rounded-xl border border-green-900/40 h-40 flex items-center justify-center text-green-400 text-lg font-semibold">
+          +15%
+        </div>
+        <div class="mt-6">
+          <h2 class="text-white text-xl font-semibold">Business Consulting</h2>
+          <p class="text-gray-400 text-sm mt-2">
+            Deep insights and AI-driven solutions to optimize your operations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <style>
+  .neon-green {
+    color: #39ff14;
+    text-shadow: 0 0 6px #39ff14, 0 0 10px #39ff14;
+  }
+
+  /* Slide animation */
+  .slide {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .slide.show {
+    max-height: 300px;
+  }
+
+  /* Card styles */
+  .project-card {
+    border: 1px solid rgba(255,255,255,0.5);
+    transition: 0.3s;
+    background: transparent;
+  }
+
+  .project-card:hover {
+    background: transparent;
+    box-shadow: 0 0 20px rgba(57,255,20,0.2);
+  }
+
+  /* Arrow transition */
+  .arrow {
+    transition: transform 0.3s;
+  }
+</style>
+
+<!-- Heading "Our Work" -->
+<h2 class="text-5xl md:text-8xl mb-9 font-normal text-white text-center tracking-wide
+           drop-shadow-[0_0_10px_#7CFC00]">
+  OUR WORK
+</h2>
+
+
+
+<section class="bg-transparent pt-0 pb-20">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-start">
+
+    <!-- LEFT CONTENT (Cards only, no heading) -->
+    <div class="space-y-12">
+
+      <!-- Project 1 -->
+      <div class="group py-6 px-6 rounded-2xl project-card cursor-pointer" onclick="toggleDetail(1)">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="text-sm font-semibold neon-green mb-1">2023</h3>
+            <h2 class="text-xl md:text-2xl font-semibold tracking-wide flex items-center gap-2">
+              Doodle – Customer Support Chatbot
+            </h2>
+          </div>
+          <span id="arrow-1" class="text-2xl arrow">→</span>
+        </div>
+        <div id="desc-1" class="slide text-gray-300 mt-4">
+          <p class="leading-relaxed">
+            We built an advanced customer support chatbot for Doodle. Our chatbot now handles 87% of Doodle's customer support inquiries,
+            freeing up their team to focus on more complex issues.
+          </p>
+          <div class="mt-6 border-t border-white/30"></div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="group py-6 px-6 rounded-2xl project-card cursor-pointer" onclick="toggleDetail(2)">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="text-sm font-semibold neon-green mb-1">2024</h3>
+            <h2 class="text-xl md:text-2xl font-semibold tracking-wide flex items-center gap-2">
+              Dash – AI Calling System
+            </h2>
+          </div>
+          <span id="arrow-2" class="text-2xl arrow">→</span>
+        </div>
+        <div id="desc-2" class="slide text-gray-300 mt-4">
+          <p class="leading-relaxed">
+            We developed an intelligent AI calling system for Dash that automates customer communication and lead management,
+            drastically improving response time and overall efficiency.
+          </p>
+          <div class="mt-6 border-t border-white/30"></div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="group py-6 px-6 rounded-2xl project-card cursor-pointer" onclick="toggleDetail(3)">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="text-sm font-semibold neon-green mb-1">2024</h3>
+            <h2 class="text-xl md:text-2xl font-semibold tracking-wide flex items-center gap-2">
+              Atomic – AI Driven Outreach
+            </h2>
+          </div>
+          <span id="arrow-3" class="text-2xl arrow">→</span>
+        </div>
+        <div id="desc-3" class="slide text-gray-300 mt-4">
+          <p class="leading-relaxed">
+            Atomic has supercharged their outreach efforts with our cutting-edge AI-driven system. Our system now handles all outbound
+            communications, enabling Atomic to connect with more potential clients.
+          </p>
+          <div class="mt-6 border-t border-white/30"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT IMAGE -->
+    <div class="flex justify-center items-center mt-20 md:mt-10">
+      <img src="laptop.png" 
+           alt="Our Work Showcase"
+           class="rounded-3xl shadow-2xl border border-white object-cover w-full max-w-md h-[400px]" />
+    </div>
+
+  </div>
+</section>
+
+<section class="bg-transparent py-20">
+  <!-- Heading -->
+  <h2 class="text-5xl md:text-8xl mb-12 font-normal text-white text-center tracking-wide
+             drop-shadow-[0_0_10px_#7CFC00]">
+    Plans to suit your needs
+  </h2>
+
+  <!-- Cards -->
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+
+    <!-- Basic Card -->
+    <div class="bg-transparent border border-gray-500 rounded-2xl p-8 flex flex-col justify-between hover:shadow-lg hover:shadow-[#39ff14]/20 transition">
+      <h3 class="text-2xl font-semibold text-white mb-4">Basic</h3>
+      <p class="text-3xl font-bold text-white mb-1">€1.997</p>
+      <p class="text-base font-normal text-gray-300 mb-4">Per month</p>
+      <div class="border-t border-gray-400 mb-4"></div>
+      <ul class="text-gray-300 space-y-2 mb-6">
+        <li class="flex items-center"><span class="text-[#39ff14] mr-2">✔</span>2 dedicated developers</li>
+        <li class="flex items-center"><span class="text-[#39ff14] mr-2">✔</span>Custom workflow automations</li>
+        <li class="flex items-center"><span class="text-[#39ff14] mr-2">✔</span>Unlimited requests</li>
+        <li class="flex items-center"><span class="text-[#39ff14] mr-2">✔</span>Unlimited revisions</li>
+        <li class="flex items-center"><span class="text-[#39ff14] mr-2">✔</span>Business consulting</li>
+      </ul>
+      <button class="w-full mt-auto border border-gray-500 text-gray-300 font-semibold py-2 rounded-lg hover:bg-gray-800 transition">
+        Get Started
+      </button>
+    </div>
+
+    <!-- Pro Card -->
+    <div class="bg-transparent border border-gray-500 rounded-2xl p-8 flex flex-col justify-between hover:shadow-lg hover:shadow-[#39ff14]/20 transition">
+      <h3 class="text-2xl font-semibold text-white mb-4">Pro</h3>
+      <p class="text-3xl font-bold text-white mb-1">€3.997</p>
+      <p class="text-base font-normal text-gray-300 mb-4">Per month</p>
+      <div class="border-t border-gray-400 mb-4"></div>
+      <ul class="text-gray-300 space-y-2 mb-6">
+        <li class="flex items-center"><span class="text-[#39ff14] mr-2">✔</span>Custom chatbots</li>
+        <li class="flex items-center"><span class="text-[#39ff14] mr-2">✔</span>Cancel & pause anytime</li>
+        <li class="flex items-center"><span class="text-[#39ff14] mr-2">✔</span>Get Started with Basic</li>
+        <li class="flex items-center"><span class="text-[#39ff14] mr-2">✔</span>Get Started with Basic</li>
+      </ul>
+      <button class="w-full mt-auto bg-[#39ff14] text-black font-semibold py-2 rounded-lg hover:brightness-110 transition">
+        Get Started
+      </button>
+    </div>
+
+    <!-- Enterprise Card -->
+    <div class="bg-transparent border border-gray-500 rounded-2xl p-8 flex flex-col justify-between hover:shadow-lg hover:shadow-[#39ff14]/20 transition">
+      <h3 class="text-2xl font-semibold text-white mb-4">Enterprise</h3>
+      <p class="text-3xl font-bold text-white mb-1">Custom</p>
+      <p class="text-base font-normal text-gray-300 mb-4">Per month</p>
+      <div class="border-t border-gray-400 mb-4"></div>
+      <ul class="text-gray-300 space-y-2 mb-6">
+        <li class="flex items-center"><span class="text-[#39ff14] mr-2">✔</span>X dedicated developers</li>
+        <li class="flex items-center"><span class="text-[#39ff14] mr-2">✔</span>Custom workflow automations</li>
+        <li class="flex items-center"><span class="text-[#39ff14] mr-2">✔</span>Unlimited requests</li>
+        <li class="flex items-center"><span class="text-[#39ff14] mr-2">✔</span>Unlimited revisions</li>
+        <li class="flex items-center"><span class="text-[#39ff14] mr-2">✔</span>Business consulting</li>
+        <li class="flex items-center"><span class="text-[#39ff14] mr-2">✔</span>Custom chatbots</li>
+        <li class="flex items-center"><span class="text-[#39ff14] mr-2">✔</span>Cancel & pause anytime</li>
+        <li class="flex items-center"><span class="text-[#39ff14] mr-2">✔</span>Contact us</li>
+        <li class="flex items-center"><span class="text-[#39ff14] mr-2">✔</span>Contact us</li>
+      </ul>
+      <button class="w-full mt-auto border border-gray-500 text-gray-300 font-semibold py-2 rounded-lg hover:bg-gray-800 transition">
+        Get Started
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<section class="bg-transparent py-20 overflow-hidden">
+  <!-- Heading -->
+  <div class="text-center mb-12">
+    <h2 class="text-5xl md:text-7xl font-normal text-white tracking-wide drop-shadow-[0_0_10px_#7CFC00] mb-4">
+      What our clients say
+    </h2>
+    <p class="text-gray-400 max-w-2xl mx-auto text-base md:text-lg">
+      Real stories from businesses that grew with our AI-powered solutions.
+    </p>
+  </div>
+
+  <!-- Slider Wrapper -->
+  <div class="relative w-full overflow-hidden">
+    <div class="flex space-x-8 animate-slide">
+      
+      <!-- Cards Set (8 unique testimonials) -->
+      <div class="flex space-x-8">
+
+        <!-- 1 -->
+        <div class="bg-gray-900/30 border border-gray-700 rounded-2xl p-8 backdrop-blur-sm w-[360px] hover:shadow-lg hover:shadow-[#39ff14]/30 transition">
+          <h3 class="text-2xl text-white font-semibold mb-3">
+            "Nebula's chatbot now handles 95% of our customer service"
+          </h3>
+          <p class="text-gray-400 mb-6">
+            Their chatbot has transformed our customer experience completely.
+          </p>
+          <div class="flex items-center space-x-3">
+            <img src="1.jpg" class="w-12 h-12 rounded-full border border-gray-600" alt="">
+            <div>
+              <p class="text-white font-semibold">Sarah Johnson</p>
+              <p class="text-[#39ff14] text-sm">CXO – Doodle</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="bg-gray-900/30 border border-gray-700 rounded-2xl p-8 backdrop-blur-sm w-[360px] hover:shadow-lg hover:shadow-[#39ff14]/30 transition">
+          <h3 class="text-2xl text-white font-semibold mb-3">
+            "AI workflow saved us 60% manual effort"
+          </h3>
+          <p class="text-gray-400 mb-6">
+            Automated our workflow seamlessly — saving hours every day.
+          </p>
+          <div class="flex items-center space-x-3">
+            <img src="3.jpg" class="w-12 h-12 rounded-full border border-gray-600" alt="">
+            <div>
+              <p class="text-white font-semibold">Liam Carter</p>
+              <p class="text-[#39ff14] text-sm">CTO – NovaTech</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="bg-gray-900/30 border border-gray-700 rounded-2xl p-8 backdrop-blur-sm w-[360px] hover:shadow-lg hover:shadow-[#39ff14]/30 transition">
+          <h3 class="text-2xl text-white font-semibold mb-3">
+            "Unbelievable reliability and speed"
+          </h3>
+          <p class="text-gray-400 mb-6">
+            Our AI operations run flawlessly, faster than ever before.
+          </p>
+          <div class="flex items-center space-x-3">
+            <img src="15.jpg" class="w-12 h-12 rounded-full border border-gray-600" alt="">
+            <div>
+              <p class="text-white font-semibold">James Miller</p>
+              <p class="text-[#39ff14] text-sm">Founder – Streamline</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="bg-gray-900/30 border border-gray-700 rounded-2xl p-8 backdrop-blur-sm w-[360px] hover:shadow-lg hover:shadow-[#39ff14]/30 transition">
+          <h3 class="text-2xl text-white font-semibold mb-3">
+            "Visionary team with unmatched precision"
+          </h3>
+          <p class="text-gray-400 mb-6">
+            These guys bring clarity and creativity — exceeded all expectations!
+          </p>
+          <div class="flex items-center space-x-3">
+            <img src="14.jpg" class="w-12 h-12 rounded-full border border-gray-600" alt="">
+            <div>
+              <p class="text-white font-semibold">Olivia Brown</p>
+              <p class="text-[#39ff14] text-sm">CMO – BrightEdge</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="bg-gray-900/30 border border-gray-700 rounded-2xl p-8 backdrop-blur-sm w-[360px] hover:shadow-lg hover:shadow-[#39ff14]/30 transition">
+          <h3 class="text-2xl text-white font-semibold mb-3">
+            "Our AI assistant boosted engagement"
+          </h3>
+          <p class="text-gray-400 mb-6">
+            24/7 automated support that feels truly human. Love it.
+          </p>
+          <div class="flex items-center space-x-3">
+            <img src="12.jpg" class="w-12 h-12 rounded-full border border-gray-600" alt="">
+            <div>
+              <p class="text-white font-semibold">Ethan Green</p>
+              <p class="text-[#39ff14] text-sm">Head of Ops – Quantum</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="bg-gray-900/30 border border-gray-700 rounded-2xl p-8 backdrop-blur-sm w-[360px] hover:shadow-lg hover:shadow-[#39ff14]/30 transition">
+          <h3 class="text-2xl text-white font-semibold mb-3">
+            "They built exactly what we imagined"
+          </h3>
+          <p class="text-gray-400 mb-6">
+            Outstanding communication, delivery, and support throughout the project.
+          </p>
+          <div class="flex items-center space-x-3">
+            <img src="11.jpg" class="w-12 h-12 rounded-full border border-gray-600" alt="">
+            <div>
+              <p class="text-white font-semibold">Noah Williams</p>
+              <p class="text-[#39ff14] text-sm">CEO – InnovateX</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="bg-gray-900/30 border border-gray-700 rounded-2xl p-8 backdrop-blur-sm w-[360px] hover:shadow-lg hover:shadow-[#39ff14]/30 transition">
+          <h3 class="text-2xl text-white font-semibold mb-3">
+            "A flawless blend of creativity & tech"
+          </h3>
+          <p class="text-gray-400 mb-6">
+            Every detail was thought out, from design to AI model optimization.
+          </p>
+          <div class="flex items-center space-x-3">
+            <img src="8.jpg" class="w-12 h-12 rounded-full border border-gray-600" alt="">
+            <div>
+              <p class="text-white font-semibold">Ava Smith</p>
+              <p class="text-[#39ff14] text-sm">Head of Design – PixelHub</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="bg-gray-900/30 border border-gray-700 rounded-2xl p-8 backdrop-blur-sm w-[360px] hover:shadow-lg hover:shadow-[#39ff14]/30 transition">
+          <h3 class="text-2xl text-white font-semibold mb-3">
+            "From idea to reality in record time"
+          </h3>
+          <p class="text-gray-400 mb-6">
+            Their AI build process was smooth and lightning fast. Incredible results!
+          </p>
+          <div class="flex items-center space-x-3">
+            <img src="3.jpg" class="w-12 h-12 rounded-full border border-gray-600" alt="">
+            <div>
+              <p class="text-white font-semibold">Daniel Reed</p>
+              <p class="text-[#39ff14] text-sm">COO – NextGen Labs</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Duplicate set for infinite loop -->
+      <div class="flex space-x-8">
+        <!-- same 8 cards duplicated for smooth looping -->
+      </div>
+    </div>
+  </div>
+</section>
+
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: white;
+      font-family: 'Inter', sans-serif;
+    }
+    .card {
+      background: linear-gradient(145deg, #111, #0a0a0a);
+      border-radius: 1rem;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.05);
+      width: 15rem;
+      height: 20rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(0,255,150,0.2);
+    }
+    .avatar {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 1rem;
+      border-radius: 50%;
+      border: 2px solid rgba(0,255,150,0.3);
+      background-size: cover;
+      background-position: center;
+    }
+    a {
+      color: #7affb6;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #adffda;
+    }
+  </style>
+</head>
+<body>
+  <section class="min-h-screen flex flex-col items-center justify-center px-6">
+
+    <!-- Glowing Heading -->
+    <div class="text-center mb-12">
+      <h2 class="text-5xl md:text-7xl font-normal text-white tracking-wide drop-shadow-[0_0_10px_#7CFC00] mb-4">
+        Meet the Team
+      </h2>
+      <p class="text-gray-400 max-w-2xl mx-auto text-base md:text-lg">
+        The brilliant minds behind our success.
+      </p>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-8">
+      
+      <!-- Card 1 -->
+      <div class="card">
+        <div class="avatar" style="background-image: url('av1.png');"></div>
+        <h2 class="text-lg font-semibold">Liam Davis</h2>
+        <p class="text-green-400 mt-1">CEO</p>
+        <a href="#" target="_blank" class="mt-2 inline-block">LinkedIn ↗</a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <div class="avatar" style="background-image: url('av2.png');"></div>
+        <h2 class="text-lg font-semibold">Emma Clark</h2>
+        <p class="text-pink-400 mt-1">CTO</p>
+        <a href="#" target="_blank" class="mt-2 inline-block">Instagram ↗</a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <div class="avatar" style="background-image: url('av3.png');"></div>
+        <h2 class="text-lg font-semibold">Noah Lee</h2>
+        <p class="text-blue-400 mt-1">Designer</p>
+        <a href="#" target="_blank" class="mt-2 inline-block">Facebook ↗</a>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card">
+        <div class="avatar" style="background-image: url('av4.png');"></div>
+        <h2 class="text-lg font-semibold">Ava Smith</h2>
+        <p class="text-sky-400 mt-1">Developer</p>
+        <a href="#" target="_blank" class="mt-2 inline-block">Twitter ↗</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Get in Touch Section -->
+<section class="bg-transparent text-white py-16 px-6">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+    
+    <!-- Left: Office Info -->
+    <div class="space-y-6">
+      <h2 class="text-5xl font-normal tracking-wide text-white drop-shadow-[0_0_10px_#7CFC00]">
+        Get in Touch
+      </h2>
+      <p class="text-gray-300">
+        We'd love to hear from you! Reach out to us using the information below or the contact form.
+      </p>
+
+      <div class="space-y-6 text-gray-200">
+        <div>
+          <h3 class="font-semibold text-green-400">Address</h3>
+          <p>Keizersgracht 520, 1017EK</p>
+          <p>Amsterdam</p>
+          <p>The Netherlands</p>
+          <hr class="border-t border-white mt-2" />
+        </div>
+        <div class="grid md:grid-cols-2 gap-6 items-start">
+          <div>
+            <h3 class="font-semibold text-green-400">Email</h3>
+            <p>mail@nebula.com</p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-green-400">Phone</h3>
+            <p>+31 (0) 20 343 9223</p>
+          </div>
+        </div>
+        <hr class="border-t border-white mt-2" />
+      </div>
+    </div>
+
+    <!-- Right: Contact Form -->
+    <form class="space-y-6 p-8 rounded-2xl">
+      <div class="grid md:grid-cols-2 gap-4">
+        <div>
+          <label class="block mb-2 font-medium text-gray-300">First Name</label>
+          <input type="text" placeholder="John" class="w-full px-4 py-3 rounded-lg bg-transparent text-white border border-gray-700 focus:border-green-400 outline-none" />
+        </div>
+        <div>
+          <label class="block mb-2 font-medium text-gray-300">Last Name</label>
+          <input type="text" placeholder="Doe" class="w-full px-4 py-3 rounded-lg bg-transparent text-white border border-gray-700 focus:border-green-400 outline-none" />
+        </div>
+      </div>
+
+      <!-- Email and Phone in same row -->
+      <div class="grid md:grid-cols-2 gap-4">
+        <div>
+          <label class="block mb-2 font-medium text-gray-300">Email</label>
+          <input type="email" placeholder="john@example.com" class="w-full px-4 py-3 rounded-lg bg-transparent text-white border border-gray-700 focus:border-green-400 outline-none" />
+        </div>
+        <div>
+          <label class="block mb-2 font-medium text-gray-300">Phone</label>
+          <input type="tel" placeholder="+31 (0) 20 343 9223" class="w-full px-4 py-3 rounded-lg bg-transparent  text -white border border-gray-700 focus:border-green-400 outline-none" />
+        </div>
+      </div>
+
+      <div>
+        <label class="block mb-2 font-medium text-gray-300">Message</label>
+        <textarea placeholder="Your Message" rows="4" class="w-full px-4 py-3 rounded-lg bg-transparent text-white border border-gray-700 focus:border-green-400 outline-none"></textarea>
+      </div>
+
+      <button type="submit" class="w-full py-3 bg-green-400 text-gray-900 font-semibold rounded-lg hover:bg-green-500 transition-colors">
+        Send Message
+      </button>
+    </form>
+
+  </div>
+</section>
+
+<section class="bg-black text-white w-full font-[Poppins] text-left gap-2"> <!-- smaller padding -->
+  <div class="w-90% max-w-7xl mx-auto">
+    <h2 class="text-white text-6xl font-normal mb-12 text-left">FAQ</h2>
+
+    <div class="space-y-4">
+
+      <!-- Question 1 -->
+      <div class="border-b border-gray-600 pb-3">
+        <button class="flex items-start w-full text-left focus:outline-none toggle-answer">
+          <svg class="w-6 h-6 text-[#39ff14] flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+          </svg>
+          <span class="flex-1 text-lg font-medium ml-2">What is included in the subscription?</span>
+          <svg class="w-5 h-5 text-gray-400 transition-transform duration-300 transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="answer mt-2 hidden text-gray-300">
+          Our subscription includes access to all premium features, updates, and dedicated support.
+        </div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="border-b border-gray-600 pb-3">
+        <button class="flex items-start w-full text-left focus:outline-none toggle-answer">
+          <svg class="w-6 h-6 text-[#39ff14] flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+          </svg>
+          <span class="flex-1 text-lg font-medium ml-2">Can I cancel my plan anytime?</span>
+          <svg class="w-5 h-5 text-gray-400 transition-transform duration-300 transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="answer mt-2 hidden text-gray-300">
+          Yes, you can cancel your subscription anytime from your account settings without any penalty.
+        </div>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="border-b border-gray-600 pb-3">
+        <button class="flex items-start w-full text-left focus:outline-none toggle-answer">
+          <svg class="w-6 h-6 text-[#39ff14] flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+          </svg>
+          <span class="flex-1 text-lg font-medium ml-2">How long does it take to build a project?</span>
+          <svg class="w-5 h-5 text-gray-400 transition-transform duration-300 transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="answer mt-2 hidden text-gray-300">
+          The timeline depends on project complexity, typically ranging from 2 to 6 weeks.
+        </div>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="border-b border-gray-600 pb-3">
+        <button class="flex items-start w-full text-left focus:outline-none toggle-answer">
+          <svg class="w-6 h-6 text-[#39ff14] flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+          </svg>
+          <span class="flex-1 text-lg font-medium ml-2">Do you provide post-launch support?</span>
+          <svg class="w-5 h-5 text-gray-400 transition-transform duration-300 transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="answer mt-2 hidden text-gray-300">
+          Yes, we offer post-launch support and maintenance packages for all projects.
+        </div>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="border-b border-gray-600 pb-3">
+        <button class="flex items-start w-full text-left focus:outline-none toggle-answer">
+          <svg class="w-6 h-6 text-[#39ff14] flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+          </svg>
+          <span class="flex-1 text-lg font-medium ml-2">What payment methods do you accept?</span>
+          <svg class="w-5 h-5 text-gray-400 transition-transform duration-300 transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="answer mt-2 hidden text-gray-300">
+          We accept all major credit cards, PayPal, and bank transfers.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  const toggles = document.querySelectorAll('.toggle-answer');
+
+  toggles.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const answer = btn.nextElementSibling;
+      const arrow = btn.querySelector('svg:last-child');
+
+      answer.classList.toggle('hidden');
+      arrow.classList.toggle('rotate-180');
+    });
+  });
+</script>
+<footer class="bg-black w-full font-[Poppins] px-4 py-10">
+
+  <!-- Full-width heading -->
+  <div class="w-full mb-4">
+    <h1 class="text-white text-5xl font-bold mb-4 mt-20">
+      mail@nebula.com
+    </h1>
+    <!-- Full-width grey line -->
+    <div class="w-full border-t border-gray-600"></div>
+  </div>
+
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+
+    <!-- Column 1: Contact Info in 4 rows -->
+    <div class="space-y-2 text-white text-sm">
+
+      <!-- Row 1: © 2024 and emails -->
+      <div class="flex flex-wrap gap-4 font-medium">
+        <span>© 2024</span>
+        <span>mail@nebula.com</span>
+      </div>
+
+      <!-- Row 2: Phone number -->
+      <div>
+        <span>+31 (0) 20 343 9223</span>
+      </div>
+
+      <!-- Row 3: Phone + Local time -->
+      <div>
+        <span>+31 (0) 20 343 9223</span>
+        <span class="ml-4">Local time: 14:15:47 (CET)</span>
+      </div>
+
+      <!-- Row 4: Empty / optional -->
+      <div></div>
+
+    </div>
+
+    <!-- Column 2: Main Links -->
+    <div class="space-y-2 text-white text-sm">
+      <a href="#process" class="block">Process</a>
+      <a href="#services" class="block">Services</a>
+      <a href="#work" class="block">Work</a>
+      <a href="#plans" class="block">Plans</a>
+      <a href="#team" class="block">Team</a>
+      <a href="#contact" class="block">Contact</a>
+      <a href="#404" class="block">404</a>
+    </div>
+
+    <!-- Column 3: Social Links -->
+    <div class="space-y-2 text-white text-sm">
+      <a href="#" class="block">LinkedIn</a>
+      <a href="#" class="block">Twitter</a>
+      <a href="#" class="block">Instagram</a>
+      <a href="#" class="block">Dribbble</a>
+    </div>
+
+  </div>
+
+  <!-- Footer Credit -->
+  <div class="mt-8 text-white text-xs text-center">
+    Template by Tibor Bregman, BlueStar Supply
+  </div>
+
+</footer>
+
+<style>
+@keyframes slide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-slide {
+  animation: slide 50s linear infinite;
+  display: flex;
+  width: max-content;
+}
+</style>
+
+
+<script>
+  function toggleDetail(id) {
+    const desc = document.getElementById(`desc-${id}`);
+    const arrow = document.getElementById(`arrow-${id}`);
+    desc.classList.toggle('show');
+    arrow.style.transform = desc.classList.contains('show') ? 'rotate(90deg)' : 'rotate(0deg)';
+  }
+</script>
+
+
+  <script>
+    // Typing animation
+    const typingLines = document.querySelectorAll('#ai-agency .typing-line');
+    typingLines.forEach((line, lineIndex) => {
+      const words = line.querySelectorAll('span');
+      words.forEach((word, wordIndex) => {
+        setTimeout(() => word.classList.add('visible'),
+          (lineIndex * 3000) + (wordIndex * 400));
+      });
+    });
+  </script>
+
+</body>
+</html>
